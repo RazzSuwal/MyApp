@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MyApp.Models.Product>
+@{
+    ViewData["Title"] = "Shop";
+}
+<section id="page-header">
+
+    <h2>save more with coupons & up to 70% off</h2>
+    <h1>#STAY HOME</h1>
+
+
+</section>
+<section id="product1" class="section-p1 mt-5">
+    <h2> Featured Products</h2>
+    <p> Summer Collections</p>
+    <div class="pro-container">
+        @foreach (var item in @Model)
+        {
+            <div class="pro">
+                <img src="@item.ImageUrl" alt="">
+                <div class="des">
+                    <span><strong>@item.Name</strong>></span>
+                    <h5>@item.Description</h5>
+                    <div class="star">
+                        <i class="fa fa-star checked"></i>
+                        <i class="fa fa-star checked"></i>
+                        <i class="fa fa-star checked"></i>
+                        <i class="fa fa-star checked"></i>
+                        <i class="fa fa-star checked"></i>
+
+                    </div>
+                    <h4>$ @item.Price</h4>
+                </div>
+                <a asp-action="Details" asp-controller="Home" asp-route-ProductId="@item.Id" class="btn btn-primary">Details</a>
+            </div>
+        }
+
+
+        @*<div class="card" style="width: 18rem;">
+        <img src="@item.ImageUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">@item.Name</h5>
+        <p class="card-text">@item.Description</p>
+        <a asp-action="Details" asp-controller="Home" asp-route-ProductId="@item.Id" class="btn btn-primary">Details</a>
+        </div>
+        </div>*@
+
+    </div>
+</section>

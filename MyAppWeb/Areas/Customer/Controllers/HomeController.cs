@@ -26,6 +26,13 @@ namespace MyAppWeb.Areas.Customer.Controllers
             return View(products);
         }
 
+        [HttpGet]
+        public IActionResult Shop()
+        {
+            IEnumerable<Product> products = _unitOfWork.Product.GetAll(includeProperties:"Category");
+            return View(products);
+        }
+
 
         [HttpGet]
         public IActionResult Details(int ? ProductId)

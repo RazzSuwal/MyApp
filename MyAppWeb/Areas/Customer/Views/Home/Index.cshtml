@@ -2,17 +2,76 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="row pb-4 m-4">
-    @foreach(var item in @Model)
-    {
-        <div class="card" style="width: 18rem;">
-            <img src="@item.ImageUrl" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">@item.Name</h5>
-                <p class="card-text">@item.Description</p>
-                <a asp-action="Details" asp-controller="Home" asp-route-ProductId="@item.Id" class="btn btn-primary">Details</a>
-            </div>
+<div>
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons & upto 70% off!</p>
+        <button>Shop now</button>
+    </section>
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="img/free.png" alt="" width="150px" height="130px">
+            <h6>Free Shipping</h6>
         </div>
-    }
+        <div class="fe-box">
+            <img src="img/orderr.png" alt="" width="150px" height="120px">
+            <h6>Online Order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/save.png" alt="" width="150px" height="130px">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/promo.png" alt="" width="150px" height="130px">
+            <h6>Promotion</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/happy sell.png" alt="" width="150px" height="130px">
+            <h6>Happy Sell</h6>
+        </div>
+        <div class="fe-box">
+            <img src="img/support.png" alt="" width="150px" height="130px">
+            <h6>24/7 Service </h6>
+        </div>
+
+    </section>
 </div>
+<section id="product1" class="section-p1 mt-5">
+    <h2> Featured Products</h2>
+    <p> Summer Collections</p>
+    <div class="pro-container">
+        @foreach(var item in @Model)
+        {
+            <div class="pro">
+                <img src="@item.ImageUrl" alt="">
+                <div class="des">
+                    <span><strong>@item.Name</strong>></span>
+                    <h5>@item.Description</h5>
+                    <div class="star">
+                        <i class="fa fa-star checked"></i>
+                        <i class="fa fa-star checked"></i>
+                        <i class="fa fa-star checked"></i>
+                        <i class="fa fa-star checked"></i>
+                        <i class="fa fa-star checked"></i>
+
+                    </div>
+                    <h4>$ @item.Price</h4>
+                </div>
+                <a asp-action="Details" asp-controller="Home" asp-route-ProductId="@item.Id" class="btn btn-primary">Details</a>
+                </div>
+        }
+
+
+            @*<div class="card" style="width: 18rem;">
+                <img src="@item.ImageUrl" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <a asp-action="Details" asp-controller="Home" asp-route-ProductId="@item.Id" class="btn btn-primary">Details</a>
+                </div>
+            </div>*@
+        
+</div>
+</section>
