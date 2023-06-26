@@ -64,6 +64,7 @@ namespace MyAppWeb.Areas.Customer.Controllers
                 {
                 
                     _unitOfWork.Cart.Add(cart);
+                    TempData["success"] = "Product Added to Cart!";
                     _unitOfWork.Save();
                     HttpContext.Session.SetInt32("SessionCart", _unitOfWork.Cart.GetAll(x => x.ApplicationUserId == claims.Value).ToList().Count);
                     
@@ -71,6 +72,7 @@ namespace MyAppWeb.Areas.Customer.Controllers
                 else
                 {
                     _unitOfWork.Cart.IncrementCartItem(cartItem, cart.Count);
+                    TempData["success"] = "Product Count Updated";
                     _unitOfWork.Save();
                 }
                 _unitOfWork.Save();
