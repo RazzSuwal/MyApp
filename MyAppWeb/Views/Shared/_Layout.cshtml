@@ -21,16 +21,17 @@
 <body>
     <header>
         <section id="header">
-            <a href="#"><img src="img/logo.png" class="logo" width="100px" height="70px"> </a>
+            <a href="#"><img src="~/img/logo.png" class="logo" width="100px" height="70px"> </a>
             <div>
                 <ul id="navbar">
-                    <li><a class="active" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="Customer" asp-controller="Home" asp-action="Shop">Shop</a></li>
                     <li><a asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a></li>
                     <li><a asp-area="Admin" asp-controller="Product" asp-action="Index">Product</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a asp-area="Admin" asp-controller="Order" asp-action="Index">Orders</a></li>
+                    <li><a href="/">Blog</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Contact</a></li>
                         @if (httpContext.HttpContext.Session.GetInt32("SessionCart") != null)
                         {
                             <li class="nav-item">

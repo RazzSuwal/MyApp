@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-5">
+    <div class="col-6">
+        <h1>List of Orders</h1>
+    </div>
+    <div class="col-6">
+        <a asp-controller="order" asp-action="Index" asp-route-status="pending">Pending</a>
+    </div>
+    <div class="col-6">
+        <a asp-controller="order" asp-action="Index" asp-route-status="approved">Approved</a>
+    </div>
+</div>
+<table id="myTable" class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+               Phone Number
+            </th>
+            <th>
+               City
+            </th>
+            <th>
+                Order Status
+            </th>
+            <th>
+                Order Total
+            </th>
+        </tr>
+    </thead>
+
+</table>
+
+@section scripts{
+    <script src="~/js/Order.js"> </script>
+}

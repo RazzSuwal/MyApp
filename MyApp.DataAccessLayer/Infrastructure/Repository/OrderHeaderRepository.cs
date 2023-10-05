@@ -16,6 +16,13 @@ namespace MyApp.DataAccessLayer.Infrastructure.Repository
             _context = context;
         }
 
+        public void PaymentStatus(int Id, string? SessionId, string? PaymentIntentId)
+        {
+            var orderHeader = _context.OrderHeaders.FirstOrDefault(x => x.Id == Id);
+            orderHeader.PaymentIntentId = PaymentIntentId;
+            orderHeader.SessionId = SessionId;
+        }
+
         public void Update(OrderHeader orderHeader)
         {
             _context.OrderHeaders.Update(orderHeader);

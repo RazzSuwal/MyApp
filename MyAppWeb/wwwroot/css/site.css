@@ -119,7 +119,7 @@ body {
 
 /*Home Page*/
 #hero {
-    background-image: url("img/luga.png");
+    background-image: url("../img/luga.png");
     height: 90vh;
     width: 100%;
     background-position: top 25% right 0;
