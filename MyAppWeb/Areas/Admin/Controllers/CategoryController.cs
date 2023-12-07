@@ -73,17 +73,30 @@ namespace MyAppWeb.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (vm.Category.Id == 0)
-                {  
-                    _unitOfwork.Category.Add(vm.Category);
+                var categories = _unitOfwork.Category.GetAll().ToList();
+
+                // Sort categories by name using Bubble Sort algorithm
+                SortingHelper.BubbleSortByName(categories);
+
+                 // Check if a category with the same name already exists
+                if (!SortingHelper.BinarySearchByName(categories, vm.Category.Name))
+                {
+                    if (vm.Category.Id == 0)
+                    {
+                        _unitOfwork.Category.Add(vm.Category);
+                    }
+                    else
+                    {
+                        _unitOfwork.Category.Update(vm.Category);
+                    }
+                    _unitOfwork.Save();
+                    TempData["success"] = "Category Updated Successfully!";
+                    return RedirectToAction("Index");
                 }
                 else
                 {
-                    _unitOfwork.Category.Update(vm.Category);
-                } 
-                _unitOfwork.Save();
-                TempData["success"] = "Category Update Sucessfully!";
-                return RedirectToAction("Index");
+                    TempData["error"] = "Category with the same name already exists!";
+                }
             }
             return RedirectToAction("Index");
         }
