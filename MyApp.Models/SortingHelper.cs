@@ -1,4 +1,4 @@
-using MyProject.Models;
+using MyApp.Models;
 
 public static class SortingHelper
 {
